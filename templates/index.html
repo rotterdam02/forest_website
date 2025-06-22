@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Remedy - Forest Loss Analysis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            padding: 60px 0;
+            text-align: center;
+            border-bottom: 2px solid #333;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #cccccc;
+            margin-bottom: 40px;
+        }
+        
+        .section {
+            background-color: #111111;
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #333;
+            box-shadow: 0 8px 32px rgba(0, 255, 136, 0.1);
+        }
+        
+        .section-title {
+            color: #00ff88;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .world-map-container {
+            background-color: #000000;
+            border-radius: 15px;
+            padding: 20px;
+            border: 2px solid #333;
+            margin: 30px 0;
+            height: 600px;
+        }
+        
+        .map-selector {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .map-selector .btn {
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            border: none;
+            color: #000000;
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            margin: 0 10px;
+        }
+        
+        .map-selector .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3);
+            color: #000000;
+        }
+        
+        .map-selector .btn.active {
+            background: linear-gradient(45deg, #00ccff, #00ff88);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4);
+        }
+        
+        .table {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .table thead th {
+            background-color: #333;
+            color: #00ff88;
+            border: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .table tbody td {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            border-color: #333;
+        }
+        
+        .table tbody tr:hover {
+            background-color: #2a2a2a;
+        }
+        
+        .btn-custom {
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            border: none;
+            color: #000000;
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3);
+            color: #000000;
+        }
+        
+        .stats-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid #333;
+            margin: 20px 0;
+        }
+        
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #00ff88;
+            margin-bottom: 10px;
+        }
+        
+        .stats-label {
+            color: #cccccc;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .container {
+            max-width: 1400px;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #00ff88;
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00ccff;
+        }
+        
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            color: #00ff88;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Green Remedy</h1>
+            <p class="hero-subtitle">Comprehensive analysis of global forest loss and environmental impact</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- World Map Section -->
+        <div class="section">
+            <h2 class="section-title">Interactive World Map</h2>
+            <p class="text-center mb-4" style="color: #cccccc; font-size: 1.1rem;">
+                Choose a metric to explore environmental data across countries. Hover over countries to see detailed information.
+            </p>
+            
+            <div class="map-selector">
+                <button class="btn active" onclick="showMap('hectares')">Forest Loss (Hectares)</button>
+                <button class="btn" onclick="showMap('percentage')">Forest Loss Percentage</button>
+                <button class="btn" onclick="showMap('emissions')">CO₂ Emissions (Million Tons)</button>
+            </div>
+            
+            <div class="world-map-container" id="world-map">
+                <div class="loading">Loading world map...</div>
+            </div>
+        </div>
+
+        <!-- Top Countries Section -->
+        <div class="section">
+            <h2 class="section-title">Top Countries by Forest Loss</h2>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th>Forest Loss (ha)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for country in top_countries %}
+                        <tr>
+                            <td>{{ country[2] }}</td>
+                            <td>{{ "{:,.0f}".format(country[1]) }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Additional Sections -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="section">
+                    <h3 class="section-title" style="font-size: 1.5rem;">Detailed Analytics</h3>
+                    <p style="color: #cccccc;">Visit our analytics page for comprehensive statistics and insights</p>
+                    <div class="text-center">
+                        <a href="/analytics" class="btn btn-custom">View Analytics</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="section">
+                    <h3 class="section-title" style="font-size: 1.5rem;">Interactive Maps</h3>
+                    <p style="color: #cccccc;">Explore different types of environmental data</p>
+                    <div class="text-center">
+                        <a href="/map" class="btn btn-custom">View Maps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Data from backend
+        const mapData = {{ map_data | tojson | safe }};
+        const percentageData = {{ percentage_data | tojson | safe }};
+        const emissionsData = {{ emissions_data | tojson | safe }};
+        
+        // Create a mapping of ISO codes to forest loss values
+        const forestLossData = {};
+        mapData.forEach(item => {
+            if (item.forest_loss_ha !== null) {
+                forestLossData[item.iso] = item.forest_loss_ha;
+            }
+        });
+        
+        // Create a mapping of ISO codes to forest loss percentage values
+        const forestPercentageData = {};
+        percentageData.forEach(item => {
+            if (item.forest_loss_percentage !== null) {
+                forestPercentageData[item.iso] = item.forest_loss_percentage;
+            }
+        });
+        
+        // Create a mapping of ISO codes to emissions values (million tons of CO2)
+        const emissionsMapData = {};
+        emissionsData.forEach(item => {
+            if (item.emissions_million_tons_co2 !== null) {
+                emissionsMapData[item.iso] = item.emissions_million_tons_co2;
+            }
+        });
+        
+        let currentMapType = 'hectares';
+        
+        // Function to show the selected map
+        function showMap(mapType) {
+            currentMapType = mapType;
+            
+            // Update button states
+            document.querySelectorAll('.map-selector .btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Create the appropriate map
+            if (mapType === 'hectares') {
+                createForestLossMap();
+            } else if (mapType === 'percentage') {
+                createForestPercentageMap();
+            } else if (mapType === 'emissions') {
+                createEmissionsMap();
+            }
+        }
+        
+        // Create the forest loss map using Plotly
+        function createForestLossMap() {
+            const container = document.getElementById('world-map');
+            container.innerHTML = ''; // Clear loading message
+            
+            const data = [{
+                type: 'choropleth',
+                locations: Object.keys(forestLossData),
+                z: Object.values(forestLossData),
+                text: Object.keys(forestLossData).map(iso => {
+                    const item = mapData.find(d => d.iso === iso);
+                    return item ? item.country_name : iso;
+                }),
+                colorscale: 'Viridis',
+                autocolorscale: false,
+                reversescale: false,
+                marker: {
+                    line: {
+                        color: '#333333',
+                        width: 0.5
+                    }
+                },
+                colorbar: {
+                    title: 'Forest Loss (ha)',
+                    titlefont: { color: 'white' },
+                    tickfont: { color: 'white' },
+                    outlinecolor: 'white'
+                },
+                hovertemplate: '<b>%{text}</b><br>' +
+                              'Forest Loss: %{z:,.0f} ha<br>' +
+                              '<extra></extra>'
+            }];
+            
+            const layout = {
+                title: {
+                    text: 'Global Forest Loss (Hectares)',
+                    x: 0.5,
+                    xanchor: 'center',
+                    font: { size: 20, color: 'white' }
+                },
+                paper_bgcolor: 'black',
+                plot_bgcolor: 'black',
+                geo: {
+                    bgcolor: 'black',
+                    showland: true,
+                    landcolor: '#1a1a1a',
+                    showocean: true,
+                    oceancolor: '#0a0a0a',
+                    showlakes: true,
+                    lakecolor: '#0a0a0a',
+                    showrivers: true,
+                    rivercolor: '#0a0a0a',
+                    coastlinecolor: '#333333',
+                    countrycolor: '#333333',
+                    projection: { type: 'natural earth' }
+                },
+                font: { color: 'white' },
+                margin: { l: 0, r: 0, t: 50, b: 0 }
+            };
+            
+            const config = {
+                responsive: true,
+                displayModeBar: true,
+                modeBarButtonsToRemove: ['pan2d', 'lasso2d', 'select2d'],
+                displaylogo: false
+            };
+            
+            Plotly.newPlot(container, data, layout, config);
+        }
+        
+        // Create the forest loss percentage map using Plotly
+        function createForestPercentageMap() {
+            const container = document.getElementById('world-map');
+            container.innerHTML = ''; // Clear loading message
+            
+            const data = [{
+                type: 'choropleth',
+                locations: Object.keys(forestPercentageData),
+                z: Object.values(forestPercentageData),
+                text: Object.keys(forestPercentageData).map(iso => {
+                    const item = percentageData.find(d => d.iso === iso);
+                    return item ? item.country_name : iso;
+                }),
+                colorscale: 'Reds',
+                autocolorscale: false,
+                reversescale: false,
+                marker: {
+                    line: {
+                        color: '#333333',
+                        width: 0.5
+                    }
+                },
+                colorbar: {
+                    title: 'Forest Loss (%)',
+                    titlefont: { color: 'white' },
+                    tickfont: { color: 'white' },
+                    outlinecolor: 'white'
+                },
+                hovertemplate: '<b>%{text}</b><br>' +
+                              'Forest Loss: %{z:.4f}%<br>' +
+                              '<extra></extra>'
+            }];
+            
+            const layout = {
+                title: {
+                    text: 'Global Forest Loss Percentage',
+                    x: 0.5,
+                    xanchor: 'center',
+                    font: { size: 20, color: 'white' }
+                },
+                paper_bgcolor: 'black',
+                plot_bgcolor: 'black',
+                geo: {
+                    bgcolor: 'black',
+                    showland: true,
+                    landcolor: '#1a1a1a',
+                    showocean: true,
+                    oceancolor: '#0a0a0a',
+                    showlakes: true,
+                    lakecolor: '#0a0a0a',
+                    showrivers: true,
+                    rivercolor: '#0a0a0a',
+                    coastlinecolor: '#333333',
+                    countrycolor: '#333333',
+                    projection: { type: 'natural earth' }
+                },
+                font: { color: 'white' },
+                margin: { l: 0, r: 0, t: 50, b: 0 }
+            };
+            
+            const config = {
+                responsive: true,
+                displayModeBar: true,
+                modeBarButtonsToRemove: ['pan2d', 'lasso2d', 'select2d'],
+                displaylogo: false
+            };
+            
+            Plotly.newPlot(container, data, layout, config);
+        }
+        
+        // Create the emissions map using Plotly
+        function createEmissionsMap() {
+            const container = document.getElementById('world-map');
+            container.innerHTML = ''; // Clear loading message
+            
+            const data = [{
+                type: 'choropleth',
+                locations: Object.keys(emissionsMapData),
+                z: Object.values(emissionsMapData),
+                text: Object.keys(emissionsMapData).map(iso => {
+                    const item = emissionsData.find(d => d.iso === iso);
+                    return item ? item.country_name : iso;
+                }),
+                colorscale: 'Oranges',
+                autocolorscale: false,
+                reversescale: false,
+                marker: {
+                    line: {
+                        color: '#333333',
+                        width: 0.5
+                    }
+                },
+                colorbar: {
+                    title: 'CO₂ Emissions (Million Tons)',
+                    titlefont: { color: 'white' },
+                    tickfont: { color: 'white' },
+                    outlinecolor: 'white'
+                },
+                hovertemplate: '<b>%{text}</b><br>' +
+                              'CO₂ Emissions: %{z:.1f} million tons<br>' +
+                              '<extra></extra>'
+            }];
+            
+            const layout = {
+                title: {
+                    text: 'Global CO₂ Emissions (Million Tons)',
+                    x: 0.5,
+                    xanchor: 'center',
+                    font: { size: 20, color: 'white' }
+                },
+                paper_bgcolor: 'black',
+                plot_bgcolor: 'black',
+                geo: {
+                    bgcolor: 'black',
+                    showland: true,
+                    landcolor: '#1a1a1a',
+                    showocean: true,
+                    oceancolor: '#0a0a0a',
+                    showlakes: true,
+                    lakecolor: '#0a0a0a',
+                    showrivers: true,
+                    rivercolor: '#0a0a0a',
+                    coastlinecolor: '#333333',
+                    countrycolor: '#333333',
+                    projection: { type: 'natural earth' }
+                },
+                font: { color: 'white' },
+                margin: { l: 0, r: 0, t: 50, b: 0 }
+            };
+            
+            const config = {
+                responsive: true,
+                displayModeBar: true,
+                modeBarButtonsToRemove: ['pan2d', 'lasso2d', 'select2d'],
+                displaylogo: false
+            };
+            
+            Plotly.newPlot(container, data, layout, config);
+        }
+        
+        // Create the initial map when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createForestLossMap();
+        });
+    </script>
+</body>
+</html>

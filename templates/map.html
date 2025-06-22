@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center mb-4">Global Forest Loss Map</h1>
+    <p class="text-center mb-4">Click on a country to view forest loss data</p>
+    
+    <div class="row">
+        <div class="col-md-8">
+            <div id="map" style="height: 600px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0">Country Information</h5>
+                </div>
+                <div class="card-body" id="country-info">
+                    <p class="text-muted">Click on a country to view its forest loss data</p>
+                </div>
+            </div>
+            <div class="card mt-3">
+                <div class="card-header bg-info text-white">
+                    <h5 class="card-title mb-0">Legend</h5>
+                </div>
+                <div class="card-body">
+                    <div id="legend" style="height: 200px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-legend@1.0.2/leaflet-legend.min.js"></script>
+<script src="{{ url_for('static', filename='js/map.js') }}"></script>
+{% endblock %}
