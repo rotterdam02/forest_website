@@ -38,6 +38,7 @@ Thumbs.db
 # Flask
 instance/
 .webassets-cache
+.env
 
 # Database files (if you want to exclude them)
 # *.db
@@ -46,4 +47,4 @@ instance/
 uli/.git/
 
 # Conda
-.conda/ 
+.conda/

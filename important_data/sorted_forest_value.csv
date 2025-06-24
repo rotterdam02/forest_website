@@ -1,0 +1,209 @@
+Country,ISO3,F2020
+Malta,MLT,0.0
+Qatar,QAT,0.0
+Saint Pierre and Miquelon,SPM,0.0207
+"San Marino, Rep. of",SMR,0.055
+Maldives,MDV,0.0645
+Oman,OMN,0.1619
+Djibouti,DJI,0.3018
+British Virgin Islands,VGB,0.4577
+Wallis and Futuna Islands,WLF,0.5629
+Israel,ISR,0.6244
+Anguilla,AIA,0.6954
+"Marshall Islands, Rep. of the",MHL,0.7238
+United States Virgin Islands,VIR,0.7456
+Iceland,ISL,0.7595
+Turks and Caicos Islands,TCA,0.8371
+Liechtenstein,LIE,0.9072
+Tonga,TON,1.0142
+Antigua and Barbuda,ATG,1.0266
+Grenada,GRD,1.154
+Niue,NIU,1.1926
+Singapore,SGP,1.1927
+"Comoros, Union of the",COM,1.2269
+"Andorra, Principality of",AND,1.3898
+St. Kitts and Nevis,KNA,1.3907
+American Samoa,ASM,1.5054
+"Lesotho, Kingdom of",LSO,1.6394
+Guam,GUM,2.016
+Cabo Verde,CPV,2.6152
+Mauritius,MUS,2.8465
+"Egypt, Arab Rep. of",EGY,3.2597
+Jordan,JOR,3.3374
+Seychelles,SYC,3.3939
+St. Lucia,LCA,3.5396
+St. Vincent and the Grenadines,VCT,3.6448
+Cyprus,CYP,4.3529
+"São Tomé and Príncipe, Dem. Rep. of",STP,4.9154
+Lebanon,LBN,5.0481
+"Yemen, Rep. of",YEM,5.1661
+Libya,LBY,6.05
+"Gambia, The",GMB,6.091
+Réunion,REU,7.0877
+Luxembourg,LUX,9.0403
+Martinique,MTQ,9.4122
+Samoa,WSM,9.5741
+"Mauritania, Islamic Rep. of",MRT,10.9292
+"Palau, Rep. of",PLW,10.9447
+Turkmenistan,TKM,11.7207
+Trinidad and Tobago,TTO,12.1466
+"Netherlands, The",NLD,12.2304
+French Polynesia,PYF,13.015
+"Bahamas, The",BHS,13.3532
+Guadeloupe,GLP,14.5278
+"Armenia, Rep. of",ARM,15.3855
+United Arab Emirates,ARE,15.8777
+Syrian Arab Rep.,SYR,15.9495
+Saudi Arabia,SAU,16.1889
+Western Sahara,ESH,17.345
+Haiti,HTI,19.0043
+Burundi,BDI,20.0614
+"Micronesia, Federated States of",FSM,20.4579
+"Eswatini, Kingdom of",SWZ,22.7982
+Rwanda,RWA,23.7967
+Puerto Rico,PRI,24.072
+"Moldova, Rep. of",MDA,24.7399
+Niger,NER,24.9303
+Iraq,IRQ,25.4677
+Tunisia,TUN,25.9307
+Algeria,DZA,36.7192
+El Salvador,SLV,38.2558
+Denmark,DNK,40.5847
+Kyrgyz Rep.,KGZ,40.6321
+"North Macedonia, Republic of ",MKD,42.8137
+"Eritrea, The State of",ERI,45.9355
+Montenegro,MNE,46.6676
+Ireland,IRL,53.0288
+Brunei Darussalam,BRN,54.701
+Jamaica,JAM,55.5824
+New Caledonia,NCL,70.7037
+Belgium,BEL,71.8251
+Bangladesh,BGD,81.9844
+"Timor-Leste, Dem. Rep. of",TLS,83.1201
+Greece,GRC,84.2399
+Portugal,PRT,87.3374
+Togo,TGO,87.4665
+Guinea-Bissau,GNB,95.0405
+Sri Lanka,LKA,99.7134
+Malawi,MWI,102.894
+Dominican Rep.,DOM,112.5653
+Sierra Leone,SLE,117.2382
+Uruguay,URY,117.798
+"Uzbekistan, Rep. of",UZB,120.7257
+Uganda,UGA,130.6886
+"Fiji, Rep. of",FJI,134.283
+Hungary,HUN,135.7861
+Solomon Islands,SLB,136.3918
+Morocco,MAR,149.7641
+Switzerland,CHE,154.9203
+Belize,BLZ,157.0771
+Côte d'Ivoire,CIV,162.118
+"Estonia, Rep. of",EST,164.0799
+Pakistan,PAK,171.9503
+"Kazakhstan, Rep. of",KAZ,172.734
+Burkina Faso,BFA,174.0592
+"Slovenia, Rep. of",SVN,180.03
+Lithuania,LTU,180.7021
+Nicaragua,NIC,180.7695
+Benin,BEN,183.1555
+Bosnia and Herzegovina,BIH,194.352
+Slovak Rep.,SVK,194.9781
+"Croatia, Rep. of",HRV,196.1604
+Georgia,GEO,212.3009
+Cuba,CUB,214.6204
+Senegal,SEN,218.163
+Chad,TCD,236.7406
+"Korea, Dem. People's Rep. of",PRK,241.8066
+"Serbia, Rep. of",SRB,248.2785
+United Kingdom,GBR,252.01
+Czech Rep.,CZE,257.1345
+Namibia,NAM,269.2074
+Guatemala,GTM,271.2173
+Latvia,LVA,288.4164
+"Equatorial Guinea, Rep. of",GNQ,306.1015
+Panama,PAN,357.755
+Mali,MLI,362.316
+Somalia,SOM,368.7268
+Costa Rica,CRI,376.3239
+Austria,AUT,408.436
+Bulgaria,BGR,408.8818
+Cambodia,KHM,409.9539
+Kenya,KEN,427.6614
+Ghana,GHA,436.4191
+Honduras,HND,458.1211
+Guinea,GIN,473.2109
+Norway,NOR,494.7516
+Bhutan,BTN,494.7928
+Mongolia,MNG,534.3138
+"Korea, Rep. of",KOR,545.5859
+Vietnam,VNM,546.1873
+Sudan,SDN,618.3496
+Nepal,NPL,643.4819
+Italy,ITA,660.063
+"Türkiye, Rep. of",TUR,713.718
+Spain,ESP,713.9142
+Paraguay,PRY,722.6694
+"Belarus, Rep. of",BLR,778.5629
+Romania,ROU,812.5004
+Ukraine,UKR,822.9717
+South Africa,ZAF,851.652
+Finland,FIN,863.4188
+"Iran, Islamic Rep. of",IRN,888.5345
+"Poland, Rep. of",POL,891.402
+Liberia,LBR,911.8837
+Philippines,PHL,919.5644
+Zimbabwe,ZWE,996.7833
+Lao People's Dem. Rep.,LAO,1137.2896
+Angola,AGO,1150.9755
+"Madagascar, Rep. of",MDG,1205.3187
+"Ethiopia, The Federal Dem. Rep. of",ETH,1209.8153
+Germany,DEU,1221.9472
+Zambia,ZMB,1236.8672
+Sweden,SWE,1355.0714
+Ecuador,ECU,1381.1352
+Botswana,BWA,1424.789
+France,FRA,1425.0978
+"Tanzania, United Rep. of",TZA,1573.628
+Thailand,THA,1650.8501
+Nigeria,NGA,1661.166
+"Guiana, French",GUF,1702.6063
+Japan,JPN,1770.385
+New Zealand,NZL,1814.8946
+Mexico,MEX,2025.9437
+Myanmar,MMR,2155.92
+"Mozambique, Rep. of",MOZ,2212.7092
+Malaysia,MYS,2337.8382
+Chile,CHL,2395.9818
+Central African Rep.,CAF,2821.7756
+"Congo, Rep. of",COG,2927.5964
+India,IND,2994.64
+Gabon,GAB,3061.5664
+Cameroon,CMR,3141.9939
+Argentina,ARG,3179.032
+Suriname,SUR,3207.7849
+Papua New Guinea,PNG,3323.829
+Bolivia,BOL,3913.6912
+Guyana,GUY,5317.2453
+"Venezuela, Rep. Bolivariana de",VEN,5505.1756
+Colombia,COL,6675.3474
+Australia,AUS,8292.2356
+"China, P.R.: Mainland",CHN,8724.3346
+Indonesia,IDN,9609.4928
+Peru,PER,10231.8541
+Oceania,OCETMP,13833.3443
+United States,USA,17704.7843
+"Congo, Dem. Rep. of the",COD,18768.1151
+Canada,CAN,19570.2141
+Asia,ASIATMP,37477.0893
+Russian Federation,RUS,40741.1206
+G7,G7,50018.053
+Africa,AFRTMP,50343.8299
+Brazil,BRA,51981.1735
+Euro Area,EMU,54520.607
+Advanced Economies,AETMP,58102.5521
+Americas,AMETMP,136258.1466
+G20,G20,179693.1706
+Emerging and Developing Economies,EMDETMP,236033.0713
+World,WLD,294135.6234
+Netherlands Antilles,ANT,
+Serbia and Montenegro,SCG,
